@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,10 @@
             --font-main: 'JetBrains Mono', 'Fira Code', monospace;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-grey);
@@ -22,11 +26,23 @@
             line-height: 1.5;
             display: flex;
             justify-content: center;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 800px;
             width: 100%;
+        }
+
+        /* Responsive ASCII Art */
+        .ascii-art {
+            color: var(--terminal-red);
+            white-space: pre;
+            font-family: monospace;
+            font-size: 11px; /* Desktop grootte */
+            line-height: 1.2;
+            margin-bottom: 20px;
+            overflow: hidden;
         }
 
         .header {
@@ -35,14 +51,7 @@
             margin-bottom: 20px;
             border-bottom: 1px solid var(--dim-grey);
             padding-bottom: 10px;
-        }
-
-        .ascii-art {
-            color: var(--terminal-red);
-            white-space: pre;
-            font-size: 12px;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            word-wrap: break-word;
         }
 
         .system-info {
@@ -52,12 +61,12 @@
         }
 
         .greeting {
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin-bottom: 20px;
         }
 
         .status-line {
-            margin: 5px 0;
+            margin: 10px 0;
         }
 
         .status-ok {
@@ -68,7 +77,7 @@
         .cursor {
             display: inline-block;
             width: 10px;
-            height: 1.5em;
+            height: 1.2em;
             background: var(--terminal-red);
             vertical-align: middle;
             animation: blink 1s infinite;
@@ -80,28 +89,39 @@
             100% { opacity: 0; }
         }
 
-        a {
-            color: var(--terminal-red);
-            text-decoration: none;
+        /* Media Query voor Mobiel */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            .ascii-art {
+                /* Schaleert de ASCII art op basis van schermbreedte */
+                font-size: 1.8vw; 
+            }
+            .header {
+                font-size: 0.85em;
+            }
+            .system-info {
+                font-size: 0.8em;
+            }
         }
 
-        a:hover {
-            text-decoration: underline;
+        strong {
+            color: var(--terminal-red);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="ascii-art">
- ######                        ###    #####   #####  
- #     #  ####   ####  #####  #   #  #     # #     # 
- #     # #    # #    #   #   #     #       # #       
+<pre class="ascii-art">
+ ######                         ###     #####   #####  
+ #     #  ####   ####  #####  #   #   #     # #     # 
+ #     # #    # #    #   #   #     #        # #       
  ######  #    # #    #   #   #     #  #####  ######  
- #   #   #    # #    #   #   #     #       # #     # 
- #    #  #    # #    #   #    #   #  #     # #     # 
- #     #  ####   ####    #     ###    #####   #####  
-                                                     
-        </div>
+ #   #   #    # #    #   #   #     #        # #     # 
+ #    #  #    # #    #   #    #   #   #     # #     # 
+ #     #  ####   ####    #     ###     #####   #####  
+</pre>
 
         <div class="header">
             [ GHOSTROOT@ALMERE-036 ] ~ Initializing...
@@ -120,10 +140,10 @@
 
         <div class="content">
             <p class="status-line">> Status: Bezig een Hackerspace te bouwen voor Almere Buiten.</p>
-            <p class="status-line">> Mission: root036: Almere’s Digitale Underground.</p>
-            <p class="status-line">> Nodes: Iedereen die interesse heeft in de Digitale wereld en hier beter in wilt worden.</p>
+            <p class="status-line">> Missie: root036: Almere’s Digitale Underground.</p>
+            <p class="status-line">> Nodes: Iedereen die interesse heeft in de digitale wereld en hier beter in wil worden.</p>
             <br>
-            <p>> <strong>root036</strong> is meer dan een analoge plek; het is een community van hackers en tech enthousiasts.</p>
+            <p>> <strong>root036</strong> is meer dan een analoge plek; het is een community van hackers en tech enthousiastelingen.</p>
         </div>
 
         <div class="footer">
