@@ -34,12 +34,11 @@
             width: 100%;
         }
 
-        /* Responsive ASCII Art */
         .ascii-art {
             color: var(--terminal-red);
             white-space: pre;
             font-family: monospace;
-            font-size: 11px; /* Desktop grootte */
+            font-size: 11px;
             line-height: 1.2;
             margin-bottom: 20px;
             overflow: hidden;
@@ -51,7 +50,6 @@
             margin-bottom: 20px;
             border-bottom: 1px solid var(--dim-grey);
             padding-bottom: 10px;
-            word-wrap: break-word;
         }
 
         .system-info {
@@ -60,9 +58,13 @@
             margin-bottom: 30px;
         }
 
-        .greeting {
-            font-size: 1.1em;
-            margin-bottom: 20px;
+        .section-title {
+            color: var(--terminal-red);
+            margin-top: 25px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 2px;
         }
 
         .status-line {
@@ -72,6 +74,24 @@
         .status-ok {
             color: var(--terminal-red);
             margin-right: 10px;
+        }
+
+        /* Discord Button Styling */
+        .discord-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid var(--terminal-red);
+            color: var(--terminal-red);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .discord-link:hover {
+            background: var(--terminal-red);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px var(--terminal-red);
         }
 
         .cursor {
@@ -89,65 +109,59 @@
             100% { opacity: 0; }
         }
 
-        /* Media Query voor Mobiel */
         @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
-            .ascii-art {
-                /* Schaleert de ASCII art op basis van schermbreedte */
-                font-size: 1.8vw; 
-            }
-            .header {
-                font-size: 0.85em;
-            }
-            .system-info {
-                font-size: 0.8em;
-            }
+            .ascii-art { font-size: 1.8vw; }
+            .header { font-size: 0.85em; }
         }
 
-        strong {
-            color: var(--terminal-red);
-        }
+        strong { color: var(--terminal-red); }
     </style>
 </head>
 <body>
     <div class="container">
 <pre class="ascii-art">
- ######                         ###     #####   #####  
+ ######                         ###   #####  #####  
  #     #  ####   ####  #####  #   #   #     # #     # 
  #     # #    # #    #   #   #     #        # #       
  ######  #    # #    #   #   #     #  #####  ######  
  #   #   #    # #    #   #   #     #        # #     # 
  #    #  #    # #    #   #    #   #   #     # #     # 
- #     #  ####   ####    #     ###     #####   #####  
+ #     #  ####   ####    #     ###     #####  #####  
 </pre>
 
         <div class="header">
-            [ GHOSTROOT@ALMERE-036 ] ~ Initializing...
+            [ GHOSTROOT@ALMERE-036 ] ~ Initializing Community Hub...
         </div>
 
         <div class="system-info">
-            OS: Arch Linux <br>
-            Host: root036 Hackerspace Project <br>
-            Uptime: 036ms <br>
-            Shell: bash /dev/almere
-        </div>
-
-        <div class="greeting">
-            <span class="status-ok">[ OK ]</span> Welkom bij <strong>root036</strong>.
+            Host: root036 Hackerspace <br>
+            Location: Almere, NL (52.3702° N, 5.2141° E) <br>
+            Status: Community Phase (Digital First) <br>
+            Active Nodes: Loading...
         </div>
 
         <div class="content">
-            <p class="status-line">> Status: Bezig een Hackerspace te bouwen voor Almere Buiten.</p>
-            <p class="status-line">> Missie: root036: Almere’s Digitale Underground.</p>
-            <p class="status-line">> Nodes: Iedereen die interesse heeft in de digitale wereld en hier beter in wil worden.</p>
-            <br>
-            <p>> <strong>root036</strong> is meer dan een analoge plek; het is een community van hackers en tech enthousiastelingen.</p>
+            <p><span class="status-ok">[ OK ]</span> Welkom bij <strong>root036</strong>.</p>
+            
+            <div class="section-title">// Over Ons</div>
+            <p class="status-line">> <strong>root036</strong> is de digitale underground van Almere.</p>
+            <p class="status-line">> Wij zijn een collectief van hackers, tech-enthousiastelingen en creatievelingen die kennis delen over cybersecurity, Linux, hardware hacking en mesh-networking.</p>
+
+            <div class="section-title">// Roadmap</div>
+            <p class="status-line"><span class="status-ok">[✓]</span> <strong>Phase 1:</strong> Launch Discord & Online Community.</p>
+            <p class="status-line"><span class="status-ok">[ ]</span> <strong>Phase 2:</strong> Regelmatige (digitale) meetups & project sharing.</p>
+            <p class="status-line"><span class="status-ok">[ ]</span> <strong>Phase 3:</strong> Vinden van een fysieke locatie in Almere zodra de node-count stabiel is.</p>
+
+            <div class="section-title">// Join the Network</div>
+            <p>Onze huidige basis is onze Discord server. Hier bouwen we aan de toekomst van root036.</p>
+            
+            <a href="https://discord.gg/bRcw48W3Bg" class="discord-link" target="_blank">
+                ./connect_to_discord.sh
+            </a>
         </div>
 
-        <div class="footer">
-            <p>> _ <span class="cursor"></span></p>
+        <div class="footer" style="margin-top: 50px;">
+            <p>> waiting for input<span class="cursor"></span></p>
         </div>
     </div>
 </body>
